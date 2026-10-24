@@ -1,4 +1,6 @@
-import React, { Suspense, useRef } from 'react'import { Canvas, useFrame } from '@react-three/fiber'
+
+import React, { Suspense, useRef } from 'react'
+import { Canvas, useFrame } from '@react-three/fiber'
 import {
   Float,
   MeshDistortMaterial,
@@ -54,7 +56,7 @@ const projects = [
     category: 'COMPUTER VISION · DEEP LEARNING',
     title: 'DeepRescue',
     description:
-      'A real-time drowning-detection concept designed to analyze activity in water and help identify potential distress situations.',
+      'A real-time drowning-detection project concept designed to analyze activity in water and help identify potential distress situations.',
     tags: ['Deep Learning', 'OpenCV', 'Real-time Vision'],
     accent: 'blue',
     link: `${profile.github}?tab=repositories`,
@@ -65,7 +67,7 @@ const projects = [
     category: 'AI FOR AGRICULTURE',
     title: 'Plant Disease Detection',
     description:
-      'A farmer-focused idea: upload a plant image, identify possible disease symptoms, and get useful guidance.',
+      'An agriculture-focused project concept for uploading plant images, identifying possible disease symptoms, and providing useful guidance.',
     tags: ['Image Classification', 'AI', 'Agriculture'],
     accent: 'violet',
     link: `${profile.github}?tab=repositories`,
@@ -91,9 +93,9 @@ const skills = [
 ]
 
 function CoreObject() {
-  const core = useRef()
-  const ring = useRef()
-  const ring2 = useRef()
+  const core = useRef(null)
+  const ring = useRef(null)
+  const ring2 = useRef(null)
 
   useFrame((state, delta) => {
     if (core.current) {
