@@ -1,5 +1,4 @@
-import { Suspense, useRef } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
+import React, { Suspense, useRef } from 'react'import { Canvas, useFrame } from '@react-three/fiber'
 import {
   Float,
   MeshDistortMaterial,
