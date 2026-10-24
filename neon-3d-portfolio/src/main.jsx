@@ -1,35 +1,3 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { createRoot } from 'react-dom/client';
-import { ArrowDownRight, ArrowUpRight, Mail, Menu, X, Code2, Cpu, Waves, Bitcoin, Sparkles, MoveUpRight } from 'lucide-react';import './styles.css';
-function ParticleField() {
-  const canvasRef = useRef(null);
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    let raf;
-    let points = [];
-    let width = 0, height = 0;
-    const resize = () => {
-      width = canvas.width = window.innerWidth * devicePixelRatio;
-      height = canvas.height = window.innerHeight * devicePixelRatio;
-      canvas.style.width = window.innerWidth + 'px';
-      canvas.style.height = window.innerHeight + 'px';
-      ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
-      points = Array.from({ length: Math.min(75, Math.floor(window.innerWidth / 18)) }, () => ({
-        x: Math.random() * window.innerWidth, y: Math.random() * window.innerHeight,
-        r: Math.random() * 1.5 + .3, vx: (Math.random() - .5) * .22, vy: (Math.random() - .5) * .22,
-        a: Math.random() * .45 + .12
-      }));
-    };
-    const draw = () => {
-      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-      points.forEach((p, i) => {
-        p.x += p.vx; p.y += p.vy;
-        if (p.x < 0 || p.x > window.innerWidth) p.vx *= -1;
-        if (p.y < 0 || p.y > window.innerHeight) p.vy *= -1;
-        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(72,255,166,${p.a})`; ctx.fill();
-        for (let j = i + 1; j < points.length; j++) {
           const q = points[j], dx = p.x - q.x, dy = p.y - q.y, d = Math.sqrt(dx*dx + dy*dy);
           if (d < 105) {
             ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y);
@@ -135,7 +103,7 @@ function App() {
       </section>
     </main>
 
-    <footer className="footer section-wrap"><a href="#home" className="brand"><span className="brand-mark">G<span>.</span></span><span className="brand-name">GURU PRASAD <i>/ DEV</i></span></a><span className="footer-center">DESIGNED WITH CURIOSITY <span className="green-word">✳</span></span><div className="social-links"><a href="https://github.com/" target="_blank" rel="noreferrer" aria-label="GitHub"><Github size={17}/></a><a href="https://linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin size={17}/></a><a href="mailto:your.email@example.com" aria-label="Email"><Mail size={17}/></a></div><p className="copyright">© {new Date().getFullYear()} GURU PRASAD D V. BUILT TO KEEP EVOLVING.</p></footer>
+    <footer className="footer section-wrap"><a href="#home" className="brand"><span className="brand-mark">G<span>.</span></span><span className="brand-name">GURU PRASAD <i>/ DEV</i></span></a><span className="footer-center">DESIGNED WITH CURIOSITY <span className="green-word">✳</span></span><div className="social-links"><a href="https://github.com/" target="_blank" rel="noreferrer" aria-label="GitHub"><Code2 size={17}/></a><a href="https://linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><ArrowUpRight size={17}/></a><a href="mailto:your.email@example.com" aria-label="Email"><Mail size={17}/></a></div><p className="copyright">© {new Date().getFullYear()} GURU PRASAD D V. BUILT TO KEEP EVOLVING.</p></footer>
   </>;
 }
 
