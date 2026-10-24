@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { ArrowDownRight, ArrowUpRight, Mail, Menu, X, Code2, Cpu, Waves, Bitcoin, Sparkles, MoveUpRight } from 'lucide-react';import './styles.css';
-
 function ParticleField() {
   const canvasRef = useRef(null);
   useEffect(() => {
